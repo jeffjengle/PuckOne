@@ -1,9 +1,22 @@
 ﻿var express = require('express');
 var router = express.Router();
+var osInfo = require('os')
+var commandToExecute = 'dir'
 
 /* GET users listing. */
 router.get('/', function (req, res) {
-    res.send('respond with a resource');
+
+    const exec = require('child_process').exec;
+    if (osInfo.platform === 'linux') { commandToExecute = 'vcgencmd measure_temp' }
+    exec(commandToExecute, function(err, stdout, stderr) {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log(stdout);
+        res.send('OS Platform: ' + osInfo.platform() + '\nCommand: ' + commandToExecute + '\nResult: ' + stdout);
+    });
+
 });
 
 module.exports = router;
