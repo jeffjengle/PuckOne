@@ -7,14 +7,14 @@ var commandToExecute = 'dir'
 router.get('/', function (req, res) {
 
     const exec = require('child_process').exec;
-    if (osInfo.platform === 'linux') { commandToExecute = 'vcgencmd measure_temp' }
+    if (osInfo.platform() === 'linux') { commandToExecute = 'vcgencmd measure_temp' }
     exec(commandToExecute, function(err, stdout, stderr) {
         if (err) {
             console.error(err);
             return;
         }
         console.log(stdout);
-        res.send('OS Platform: ' + osInfo.platform() + '\nCommand: ' + commandToExecute + '\nResult: ' + stdout);
+        res.send('OS Platform: ' + osInfo.platform() + 'Command: ' + commandToExecute + 'Result: ' + stdout);
     });
 
 });
