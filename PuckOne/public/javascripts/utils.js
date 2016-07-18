@@ -1,4 +1,4 @@
-﻿/* Convert celsius to fahrenheit */
+﻿/* Convert temperatures */
 function convertTemp(origTemp, origType, resultType) {
     switch (origType.tolowercase()) {
         case "c":
@@ -30,4 +30,4 @@ function convertTemp(origTemp, origType, resultType) {
             }
     }
 }
-module.exports.convertTemp = convertTemp;
+module.exports = convertTemp;
