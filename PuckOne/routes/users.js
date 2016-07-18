@@ -13,14 +13,14 @@ router.get('/', function (req, res) {
                 console.error(err);
                 return;
             }
-            var cpuTemp = stdout.split("=").pop();
+            var cpuTemp = stdout.split("=").pop().replace(/\D/g, '');
             var cpuTempF = convertTemp(cpuTemp, "C", "F");
             console.log(cpuTempF);
             res.send({Temp: cpuTempF});
         });
         }
     else {      
-         var cpuTemp = 0;
+         var cpuTemp = "0'C".replace(/\D/g, '');
          var cpuTempF = convertTemp(cpuTemp, "C", "F");
          console.log(cpuTempF);
          res.send({ Temp: cpuTempF });
