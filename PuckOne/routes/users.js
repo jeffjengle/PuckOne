@@ -13,8 +13,9 @@ router.get('/', function (req, res) {
             console.error(err);
             return;
         }
-        console.log(stdout);
-        res.send('OS Platform: ' + osInfo.platform() + 'Command: ' + commandToExecute + 'Result: ' + stdout);
+        var cpuTempF = stdout.split("=").pop();
+        console.log(cpuTempF);
+        res.send(cpuTempF);
     });
 
 });
