@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
                 console.error(err);
                 return;
             }
-            var cpuTemp = stdout.split("=").pop().replace(/\D/g, '');
+            var cpuTemp = stdout.split("=").pop().replace(/[^\.^0-9]/g, '');
             var cpuTempF = convertTemp(cpuTemp, "C", "F");
             console.log('cpu temp: ' + cpuTemp);
             res.status('200').send({ TempF: cpuTempF });
@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
         });
         }
     else {      
-         var cpuTemp = "0'C".replace(/\D/g, '');
+         var cpuTemp = "0'C".replace(/[^\.^0-9]/g, '');
          var cpuTempF = convertTemp(cpuTemp, "C", "F");
          console.log('cpu temp: ' + cpuTemp);
         res.status('200').send({ TempF: cpuTempF });
