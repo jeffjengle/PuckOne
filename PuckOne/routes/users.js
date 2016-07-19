@@ -16,7 +16,7 @@ router.get('/', function (req, res) {
             var cpuTemp = stdout.split("=").pop().replace(/\D/g, '');
             var cpuTempF = convertTemp(cpuTemp, "C", "F");
             console.log('cpu temp: ' + cpuTemp);
-            res.send({ Temp: cpuTemp }, { TempF: cpuTempF });
+            res.status('200').send({ TempF: cpuTempF });
             console.log('cpu tempF: ' + cpuTempF);
         });
         }
@@ -24,7 +24,7 @@ router.get('/', function (req, res) {
          var cpuTemp = "0'C".replace(/\D/g, '');
          var cpuTempF = convertTemp(cpuTemp, "C", "F");
          console.log('cpu temp: ' + cpuTemp);
-         res.send({ Temp: cpuTemp }, { TempF: cpuTempF });
+        res.status('200').send({ TempF: cpuTempF });
          console.log('cpu tempF: ' + cpuTempF);
      }
 });
