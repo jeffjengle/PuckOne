@@ -35,7 +35,7 @@ function convertTemp(origTemp, origType, resultType) {
         case "c":
             switch (resultType.toLowerCase()) {
                 case "f":
-                    return origTemp * (5 / 9) + 32;
+                    return origTemp * (9 / 5) + 32;
                 case "k":
                     return origTemp + 273.15;
                 default:
