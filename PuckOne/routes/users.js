@@ -15,15 +15,17 @@ router.get('/', function (req, res) {
             }
             var cpuTemp = stdout.split("=").pop().replace(/\D/g, '');
             var cpuTempF = convertTemp(cpuTemp, "C", "F");
-            console.log(cpuTempF);
-            res.send({Temp: cpuTempF});
+            console.log('cpu temp: ' + cpuTemp);
+            res.send({ Temp: cpuTemp }, { TempF: cpuTempF });
+            console.log('cpu tempF: ' + cpuTempF);
         });
         }
     else {      
          var cpuTemp = "0'C".replace(/\D/g, '');
          var cpuTempF = convertTemp(cpuTemp, "C", "F");
-         console.log(cpuTempF);
-         res.send({ Temp: cpuTempF });
+         console.log('cpu temp: ' + cpuTemp);
+         res.send({ Temp: cpuTemp }, { TempF: cpuTempF });
+         console.log('cpu tempF: ' + cpuTempF);
      }
 });
 
@@ -33,7 +35,7 @@ function convertTemp(origTemp, origType, resultType) {
         case "c":
             switch (resultType.toLowerCase()) {
                 case "f":
-                    return origTemp * 5 / 9 + 32;
+                    return origTemp * (5 / 9) + 32;
                 case "k":
                     return origTemp + 273.15;
                 default:
@@ -42,9 +44,9 @@ function convertTemp(origTemp, origType, resultType) {
         case "f":
             switch (resultType.toLowerCase()) {
                 case "c":
-                    return (origTemp - 32) * 5 / 9;
+                    return (origTemp - 32) * (5 / 9);
                 case "k":
-                    return (origTemp + 459.67) * 5 / 9;
+                    return (origTemp + 459.67) * (5 / 9);
                 default:
                     return -999999
             }
@@ -53,7 +55,7 @@ function convertTemp(origTemp, origType, resultType) {
                 case "c":
                     return origTemp - 273.15;
                 case "f":
-                    return origTemp * 9 / 5 - 459.67;
+                    return origTemp * (9 / 5) - 459.67;
                 default:
                     return -999999
             }
