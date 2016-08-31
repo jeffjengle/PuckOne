@@ -31,6 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="app_api\models\db.js" />
+    <Compile Include="app_api\models\devices.js" />
     <Compile Include="app_server\routes\index.js" />
     <Compile Include="public\javascripts\utils.js" />
     <Compile Include="app_api\routes\index.js" />
@@ -45,10 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app_server\controllers\" />
+    <Folder Include="app_api\models\" />
     <Folder Include="app_server\routes\" />
     <Folder Include="app_api\config\" />
     <Folder Include="app_api\controllers\" />
-    <Folder Include="app_api\models\" />
     <Folder Include="bin\" />
     <Folder Include="app_api\" />
     <Folder Include="app_server\" />
@@ -64,6 +66,8 @@
     <Folder Include="typings\globals\debug\" />
     <Folder Include="typings\globals\express\" />
     <Folder Include="typings\globals\jade\" />
+    <Folder Include="typings\globals\mongodb\" />
+    <Folder Include="typings\globals\mongoose\" />
     <Folder Include="typings\globals\morgan\" />
     <Folder Include="typings\globals\node\" />
     <Folder Include="typings\globals\serve-favicon\" />
@@ -76,6 +80,8 @@
     <TypeScriptCompile Include="typings\globals\debug\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\express\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jade\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\mongodb\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\mongoose\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\morgan\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\serve-favicon\index.d.ts" />
